@@ -10,6 +10,16 @@ module.exports = (robot) => {
         })
         res.send(result.join('\n'))
     })
+    robot.hear(/shuffle＞ /i,(res) => {
+        const text  = res.message.text
+        const names = text.split(' ').slice(1)
+        const shuffled = fisherShuffle(names)
+        const result = shuffled.map((name, index=0)=>{
+            index += 1
+            return String(index) + '番目：' +　name
+        })
+        res.send(result.join('\n'))
+    })
 }
 
 const fisherShuffle = ([...arr]) => {
