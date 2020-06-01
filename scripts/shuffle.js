@@ -3,8 +3,10 @@ module.exports = (robot) => {
   robot.hear(/シャッフル＞　/i, (res) => {
     const text = res.message.text;
     const names = text.split("　").slice(1);
-    const shuffled = fisherShuffle(names);
-    const result = shuffled.map((name, index = 0) => {
+    const shuffled_1 = fisherShuffle(names);
+    const shuffled_2 = fisherShuffle(shuffled_1);
+    const shuffled_3 = fisherShuffle(shuffled_2);
+    const result = shuffled_3.map((name, index = 0) => {
       index += 1;
       return String(index) + "番目：" + name;
     });
